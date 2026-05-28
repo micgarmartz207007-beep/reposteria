@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Mi Dulce Tentación</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght=300;400;600&family=Playfair+Display:wght=600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #fdf6f0, #f8d7b9);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* TITULO */
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 38px;
+            color: #6b3e26;
+            margin-bottom: 25px;
+            letter-spacing: 1px;
+            animation: fadeIn 1.5s ease;
+            text-align: center;
+        }
+
+        /* CONTENEDOR */
+        .contenedor {
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        /* TARJETA PRINCIPAL */
+        .portada {
+            position: relative;
+            width: 460px;
+            max-width: 90%; /* Hace que se adapte mejor a celulares */
+            overflow: hidden;
+            border-radius: 30px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+            transition: all 0.4s ease;
+            cursor: pointer;
+            background: white;
+        }
+
+        /* EFECTO HOVER */
+        .portada:hover {
+            transform: scale(1.05) translateY(-5px);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.35);
+        }
+
+        /* IMAGEN */
+        .portada img {
+            width: 100%;
+            display: block;
+        }
+
+        /* OVERLAY */
+        .overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.75), transparent);
+            color: white;
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-start;
+            flex-direction: column;
+            padding: 25px;
+            box-sizing: border-box;
+            opacity: 0;
+            transition: 0.4s ease;
+        }
+
+        /* TEXTO */
+        .overlay h2 {
+            margin: 0;
+            font-size: 26px;
+            font-weight: 600;
+        }
+
+        .overlay p {
+            margin-top: 8px;
+            font-size: 14px;
+            opacity: 0.9;
+            margin-bottom: 12px;
+        }
+
+        /* APARECE OVERLAY */
+        .portada:hover .overlay {
+            opacity: 1;
+        }
+
+        /* TEXTO QUE SIMULA UN BOTÓN */
+        .enlace-boton {
+            padding: 10px 18px;
+            background: #e6a57e;
+            color: white;
+            border-radius: 20px;
+            font-size: 14px;
+            text-decoration: none;
+            transition: 0.3s;
+            display: inline-block;
+        }
+
+        .portada:hover .enlace-boton {
+            background: #d48d65;
+        }
+
+        /* ANIMACIÓN */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Mi Dulce Tentación</h1>
+
+    <div class="contenedor">
+        <a href="inicio.html" style="text-decoration: none;">
+            <div class="portada">
+                <img src="portada-33.png" alt="Postre">
+
+                <div class="overlay">
+                    <h2>Bienvenido</h2>
+                    <p>Descubre nuestros postres artesanales</p>
+                    <span class="enlace-boton">Entrar</span>
+                </div>
+            </div>
+        </a>
+    </div>
+
+</body>
+</html>g
+ 
+
+
+
+ 

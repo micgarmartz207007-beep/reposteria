@@ -1,0 +1,607 @@
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Menú - Mi Dulce Tentación</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<a href="inicio.html" class="boton">⬅ Regresar al Inicio</a>
+<style>
+body{
+margin:0;
+font-family:'Segoe UI',sans-serif;
+background:#f5e6d3;
+}
+header{
+background:#572B0A;
+color:white;
+padding:20px;
+text-align:center;
+}
+nav{
+background:#572B0A;
+padding:12px;
+text-align:center;
+}
+nav a{
+color:white;
+text-decoration:none;
+margin:0 15px;
+font-weight:bold;
+}
+.titulo{
+text-align:center;
+margin:30px 0;
+color:#572B0A;
+}
+
+/* BOTONES DE CATEGORIA */
+.filtros{
+text-align:center;
+margin-bottom:20px;
+}
+.filtros button{
+margin:5px;
+padding:10px 15px;
+border:none;
+background:#572B0A;
+color:white;
+border-radius:20px;
+cursor:pointer;
+}
+.filtros button:hover{
+background:#572B0A;
+}
+
+.productos{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:25px;
+padding:20px;
+}
+.card{
+background:white;
+width:250px;
+border-radius:15px;
+box-shadow:0 4px 12px rgba(0,0,0,0.2);
+overflow:hidden;
+transition:0.3s;
+text-align:center;
+}
+.card:hover{
+transform:scale(1.05);
+}
+.card img{
+width:100%;
+height:180px;
+object-fit:cover;
+cursor:pointer; /* Cambia el cursor a mano para indicar que es clickeable */
+}
+.card h3{
+margin:10px 0 5px 0;
+color:#6b3e26;
+}
+.card p{
+padding:0 10px;
+font-size:14px;
+}
+
+/* BOTÓN */
+.boton {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 5px 10px;
+    background: #82481D;
+    color: white;
+    text-decoration: none;
+    border-radius: 14px;
+    transition: 0.3s;
+    font-size: 12px;
+}
+
+/* FOOTER */
+footer{
+    background:#422905;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+/* ESTILOS DE LA VENTANA MODAL (RECETA) */
+.modal {
+    display: none; /* Oculta la modal por defecto */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5); /* Fondo oscuro semitransparente */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: auto;
+    padding: 25px;
+    border-radius: 15px;
+    width: 80%;
+    max-width: 500px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    text-align: left;
+    position: relative;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.cerrar-modal {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+
+.cerrar-modal:hover {
+    color: #6E4A22;
+}
+
+.modal-content h2 {
+    color: #6E4A22;
+    margin-top: 0;
+}
+
+.modal-content h4 {
+    color: #a17b42;
+    margin-bottom: 5px;
+}
+
+/* Mantiene los saltos de línea dentro de la modal */
+#modalInstrucciones {
+    white-space: pre-line;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1> Mi Dulce Tentación</h1>
+<nav>
+<a href="inicio.html">Inicio</a>
+<a href="menu.html">Menú</a>
+<a href="nosotros.html">Nosotros</a>
+<a href="galeria.html">Galería</a>
+<a href="contacto.html">Contacto</a>
+</nav>
+</header>
+
+<h2 class="titulo">Nuestro Menú</h2>
+
+<div class="filtros">
+<button onclick="filtrar('todos')">Todos</button>
+<button onclick="filtrar('pastel')">Pasteles</button>
+<button onclick="filtrar('mini postres')">mini postres</button>
+<button onclick="filtrar('cupcake')">Cupcakes</button>
+</div>
+
+<div class="productos">
+
+<div class="card" data-categoria="pastel" 
+     data-ingredientes="Harina, chocolate, mantequilla, huevos, azúcar, helado de vainilla." 
+     data-receta="1.Fundir: Derrite el chocolate junto con la mantequilla en el microondas (en lapsos de 30 segundos) o a baño María hasta que quede una mezcla lisa.
+2.Batir: En un tazón, bate los huevos con el azúcar hasta que espumen un poco, luego integra el chocolate derretido.
+3.Integrar: Agrega la harina tamizada y mezcla suavemente con una espátula solo hasta que no queden grumos.
+4.Hornear: Vierte la mezcla en un molde enharinado y hornea a 180°C durante 20 a 25 minutos. El centro debe quedar ligeramente húmedo.
+5.Servir: Corta en cuadros mientras esté tibio y colócale una bola de helado de vainilla encima.">
+<img src="114.jpeg" alt="brawnie con helado" onclick="abrirReceta(this)">
+<h3>brawnie con helado</h3>
+<p>Delicioso brawnie  con helado.</p>
+</div>
+
+<div class="card" data-categoria="mini postres" 
+     data-ingredientes="Masa quebrada dulce para tartaletas, crema pastelera espesa, frutas de temporada (fresas, kiwi, durazno, arándanos), brillo para frutas o mermelada de chabacano." 
+     data-receta="1. Base: Hornea las mini tartaletas de masa quebrada a 180°C durante 12-15 minutos hasta que estén doradas. Deja enfriar.
+2. Relleno: Coloca una porción generosa de crema pastelera fría dentro de cada base con ayuda de una cuchara o manga.
+3. Fruta: Corta las frutas estéticas y acomódalas armónicamente encima de la crema pastelera.
+4. Brillo: Barniza la fruta con el brillo o un toque de mermelada diluida en agua tibia para protegerla y darle una presentación profesional.">
+<img src="116.jpeg" alt="tartaleta de frutas" onclick="abrirReceta(this)">
+<h3>tartaleta de frutas</h3>
+<p>Refrescante y dulce.</p>
+</div>
+
+<div class="card" data-categoria="cupcake" 
+     data-ingredientes="1 lata de leche condensada, 1 lata de leche evaporada, 1/2 taza de jugo de limón fresco (aproximadamente 4-5 limones), 1 paquete de galletas María (o galletas de vainilla similares)" 
+     data-receta="1.Licuar: Agrega en la licuadora la leche condensada y la leche evaporada. Mientras licúas a velocidad baja, vierte el jugo de limón poco a poco. Verás cómo la mezcla se vuelve espesa y cremosa de inmediato.
+2.Base: En un molde o refractario, coloca una capa uniforme de galletas María en el fondo.
+3.Capas: Vierte un poco de la crema de limón sobre las galletas hasta cubrirlas. Repite el proceso (capa de galleta, capa de crema) hasta llegar al tope del molde, terminando siempre con una capa de crema.
+4.Enfriar: Tapa el molde y llévalo al congelador por al menos 2 horas (o al refrigerador por 4 horas) para que tome una consistencia firme y las galletas se ablanden.
+5.Decorar: Antes de servir, puedes rallar un poco de cáscara de limón encima para darle un toque fresco y colorido.">
+<img src="112.jpeg" alt="Cupcake" onclick="abrirReceta(this)">
+<h3>Cupcake galleta</h3>
+<p>Esponjoso con betún.</p>
+</div>
+
+<div class="card" data-categoria="pastel" 
+     data-ingredientes="Bizcocho esponjoso de vainilla, esencia de menta, colorante vegetal verde, 300g de chocolate para derretir, 200ml de crema para batir, hojas de menta para decorar." 
+     data-receta="1. El Bizcocho: Agrega esencia de menta y unas gotitas de colorante verde a tu mezcla clásica de bizcocho. Hornea y deja enfriar.
+2. El Relleno: Prepara una crema batida firme saborizada con un toque ligero de menta. Rellena las capas del pastel.
+3. Cobertura: Cubre todo el pastel con la crema de menta alisando perfectamente los bordes.
+4. Decoración: Deja caer un ganache de chocolate tibio por las orillas simulando un goteo. Decora la parte superior con ramitas de menta fresca.">
+<img src="155.jpeg" alt="pastel de menta" onclick="abrirReceta(this)">
+<h3>pastel de menta</h3>
+<p>Delicioso y cremoso pastel de menta.</p>
+</div>
+
+<div class="card" data-categoria="mini postres" 
+     data-ingredientes="Para la base: 10-12 galletas Oreo trituradas y 2 cucharadas de mantequilla derretida. Para el relleno: 250g de queso crema, 50g de azúcar glass, 1 cucharadita de vainilla, 150ml de crema para batir (nata) y 4 galletas Oreo picadas finamente. Para la cobertura: 80g de chocolate para derretir, 50ml de crema para batir caliente y cerezas frescas para decorar." 
+     data-receta="1.La base: Mezcla las galletas trituradas con la mantequilla derretida. Presiona la mezcla firmemente en el fondo de tus moldes individuales (lo ideal es usar moldes de silicón o desmoldables) y refrigera mientras haces el relleno.
+2.El relleno: Bate el queso crema con el azúcar glass y la vainilla hasta que esté suave. En otro tazón, bate la crema hasta que monte. Junta ambas mezclas de forma envolvente e incorpora las galletas Oreo picadas finamente para darle ese aspecto moteado.
+3.El armado: Rellena los moldes sobre la base de galleta, alisa la superficie y congela por un mínimo de 3 o 4 horas (o toda la noche) para que queden firmes y los puedas desmoldar perfectos.
+4.El toque final: Desmolda los pasteles. Mezcla el chocolate picado con la crema caliente hasta que se derrita por completo (ganache). Deja entibiar un poco y déjalo caer sobre los bordes para crear el efecto de 'goteo'. Corona cada uno con una cereza fresca.">
+<img src="152.jpeg" alt="ganache de chocolate" onclick="abrirReceta(this)">
+<h3>ganache de chocolate</h3>
+<p>Refrescante y dulce ganache de chocolate.</p>
+</div>
+
+<div class="card" data-categoria="cupcake" 
+     data-ingredientes="Para el panqué: 200g de harina, 150g de azúcar, 120g de mantequilla (a temperatura ambiente), 2 huevos, 120ml de leche, 1 cucharadita de polvo para hornear, 1 cucharadita de vainilla y 1 taza de arándanos frescos. Para los frostings y decoración: 300g de queso crema, 100g de mantequilla, 150g de azúcar glass, 3 cucharadas de mermelada o puré de arándanos (para pintar la mitad del frosting) y arándanos frescos para decorar." 
+     data-receta="1.La base: Bate la mantequilla con el azúcar hasta que acreme. Agrega los huevos uno a uno, luego la vainilla. Incorpora la harina y el polvo para hornear alternando con la leche. Al final, añade los arándanos envoltura por envoltura para que no se rompan.
+2.El horneado: Llena los capacillos a 3/4 de su capacidad y hornea a 180°C por 18-20 minutos. Deja enfriar por completo.
+3.El frosting: Bate el queso crema con la mantequilla y el azúcar glass hasta obtener una consistencia firme y suave. Separa la mezcla en dos partes: deja una blanca y a la otra agrégale el puré de arándanos para darle ese tono morado.
+4.El decorado: Con una manga pastelera, coloca primero una base del frosting blanco. Encima, haz un rosetón con el frosting morado. Termina decorando con un poco de mermelada chorreada y un puñado de arándanos frescos en la punta.">
+<img src="118.jfif" alt="Cupcake" onclick="abrirReceta(this)">
+<h3>Cupcake de arandanos</h3>
+<p>Esponjoso con betún sabor arandanos.</p>
+</div>
+
+<div class="card" data-categoria="pastel" 
+     data-ingredientes="Para la base de brownie: 150g de mantequilla, 200g de azúcar, 2 huevos, 1 cucharadita de vainilla, 60g de cocoa en polvo, 70g de harina y una pizca de sal. Para el decorado: 16 fresas medianas (lavadas y secas), 100g de chocolate para derretir, 50ml de crema para batir y escamas de sal marina (opcional)."
+     data-receta="1.El brownie: Derrite la mantequilla y mézclala con el azúcar. Añade los huevos uno a uno y la vainilla. Incorpora la cocoa, la harina y la pizca de sal sin batir de más. Hornea a 180°C durante 20-22 minutos en un molde cuadrado. Deja enfriar por completo y córtalo en cuadritos.
+2.La cobertura: Calienta la crema para batir y viértela sobre el chocolate picado. Mezcla hasta que quede una crema suave y brillante (ganache).
+3.El armado: Coloca una cucharadita de ganache sobre cada cuadro de brownie para que sirva como 'pegamento'. Presiona una fresa encima de cada uno.
+4.El toque final: Pon el resto del chocolate en una bolsita o manga, corta una punta fina y haz un patrón de líneas sobre las fresas. Decora con unos granitos de sal marina para resaltar el sabor del chocolate.">
+<img src="147.jpeg" alt="brawnie de chocolate" onclick="abrirReceta(this)">
+<h3>brawnie de chocolate </h3>
+<p>Delicioso brawnie con fresa y chocolate.</p>
+</div>
+
+<div class="card" data-categoria="mini postres" 
+     data-ingredientes="100g chocolate negro, 100g chocolate con leche, 100g chocolate blanco, 600ml de crema para batir, 3 hojas de gelatina (para dar firmeza), virutas de chocolate." 
+     data-receta="1. Preparación: Divide la crema en 3 partes de 200ml. Hidrata una hoja de gelatina en agua fría para cada capa.
+2. Capas de mousse: Funde el chocolate negro, mézclalo con una hoja de gelatina disuelta en un chorrito de crema caliente y añade de forma envolvente los 200ml de crema batida. Vierte en vasitos y refrigera 20 minutos.
+3. Repetición: Repite el mismo proceso exacto con el chocolate con leche, viértelo sobre la capa negra firme, y finalmente haz lo mismo con el chocolate blanco.
+4. Reposo: Refrigera los vasitos por un mínimo de 3 horas y decora con virutas de chocolate encima.">
+<img src="153.jpeg" alt="mousse de tres chocolates" onclick="abrirReceta(this)">
+<h3>mousse de tres chocolates</h3>
+<p>Refrescante y dulce mousse de chocolate.</p>
+</div>
+
+<div class="card" data-categoria="cupcake" 
+     data-ingredientes="2 plátanos maduros machacados, 150g de harina, 100g de azúcar, 80g de mantequilla derretida, 1 huevo, 1 cucharadita de bicarbonato de sodio. Para el betún: 150g de queso crema y 50g de azúcar glass." 
+     data-receta="1. Masa: En un tazón grande, mezcla los plátanos machacados con la mantequilla derretida, el azúcar y el huevo.
+2. Secos: Incorpora la harina tamizada y el bicarbonato con movimientos suaves.
+3. Horneado: Distribuye la masa en los capacillos para cupcakes y hornea a 180°C por 15-18 minutos hasta que doren.
+4. Decoración: Bate el queso crema con el azúcar glass y colócalo estéticamente sobre el cupcake frío.">
+<img src="161.jpeg" alt="Cupcake" onclick="abrirReceta(this)">
+<h3>Cupcake de platano </h3>
+<p>Esponjoso con betún sabor platano.</p>
+</div>
+
+<div class="card" data-categoria="pastel" 
+     data-ingredientes="Bizcocho de vainilla, 2 tazas de arándanos frescos, 400g de queso crema, 150g de azúcar glass, 200ml de crema para batir, mermelada de arándanos artesanal." 
+     data-receta="1. Fruta: Incorpora una taza de arándanos enteros enharinados a la masa de tu bizcocho de vainilla y hornéalo con normalidad.
+2. Relleno: Bate el queso crema junto con el azúcar glass y la crema para batir hasta montar una cobertura densa.
+3. Armado: Corta el bizcocho por la mitad, coloca una capa de la crema de queso, añade una generosa porción de mermelada de arándanos y junta el pastel.
+4. Cobertura: Cubre todo el exterior y decora la corona con el resto de los arándanos frescos.">
+<img src="145.jpeg" alt="pastel" onclick="abrirReceta(this)">
+<h3>pastel de arandanos</h3>
+<p>Delicioso y cremoso pastel de arandanos.</p>
+</div>
+
+<div class="card" data-categoria="mini postres" 
+     data-ingredientes="1 paquete de galletas de vainilla trituradas, 60g de mantequilla derretida, 250g de leche condensada, 200ml de crema de leche fresca, chocolate rallado." 
+     data-receta="1. Base: Mezcla las galletas trituradas finamente con la mantequilla derretida. Pon una base compacta en moldes individuales para tarta.
+2. Crema: Bate la crema de leche fría a punto de nieve y mézclala suavemente con la leche condensada.
+3. Armado: Rellena las bases de galleta con esta mezcla cremosa utilizando una espátula o manga.
+4. Toque final: Decora espolvoreando chocolate rallado fino y refrigera por 4 horas antes de servir desmoldado.">
+<img src="143.jpeg" alt="mini tarta de galleta." onclick="abrirReceta(this)">
+<h3>mini tarta de galleta.</h3>
+<p>Refrescante y dulce tarta cremosa.</p>
+</div>
+
+<div class="card" data-categoria="cupcake" 
+     data-ingredientes="180g de harina, 120g de azúcar, 2 cucharaditas de café instantáneo en polvo de buena calidad, 2 huevos, 100g de mantequilla, 80ml de leche. Betún: 200g de queso crema, cocoa en polvo para espolvorear." 
+     data-receta="1. Saborizar: Disuelve el café instantáneo directamente en la leche tibia.
+2. Batido: Acrema la mantequilla con el azúcar, agrega los huevos uno a uno y alterna la harina con la leche con café.
+3. Hornear: Hornea a 180°C por unos 18 minutos.
+4. Betún: Decora con copos de crema de queso imitando la espuma del capuchino y espolvorea un poco de cocoa en polvo con un colador.">
+<img src="167.jpeg" alt="Cupcake" onclick="abrirReceta(this)">
+<h3>Cupcake sabor capuchino </h3>
+<p>Esponjoso con betún sabor cafe.</p>
+</div>
+
+<div class="card" data-categoria="pastel" 
+     data-ingredientes="1 lata de leche condensada, 1 lata de leche evaporada, 1/2 taza de jugo de limón puro, 2 paquetes de galletas María, rodajas de limón para decorar." 
+     data-receta="1. Crema: Licúa perfectamente la leche condensada con la leche evaporada. Agrega el jugo de limón poco a poco en hilo hasta que espese por completo.
+2. Montar: En un molde desmontable grande, alterna una capa compacta de galletas María y una capa de crema de limón.
+3. Capas: Repite el patrón hasta llenar el molde, asegurando que la última capa superior sea de crema limpia.
+4. Enfriar: Congela por un mínimo de 4 horas. Decora estéticamente con rodajas finas o ralladura de limón fresco antes de porcionar.">
+<img src="111.jpeg" alt="carlota" onclick="abrirReceta(this)">
+<h3>carlota de limon</h3>
+<p>Deliciosa y cremosa carlota de limon.</p>
+</div>
+
+<div class="card" data-categoria="mini postres" 
+     data-ingredientes="200g de frambuesas frescas, 60g de azúcar, 200ml de crema para batir fría, 2 hojas de gelatina sin sabor hidratadas." 
+     data-receta="1. Coulis: Licúa las frambuesas con el azúcar y pasa la mezcla por un colador fino para eliminar por completo las semillas.
+2. Gelatina: Calienta una pequeña porción del puré de frambuesas y disuelve ahí las hojas de gelatina previamente hidratadas y escurridas. Junta todo el puré.
+3. Batir: Monta la crema para batir bien fría a medio punto e incorpora el puré de frambuesa con movimientos envolventes.
+4. Servir: Vierte con cuidado en copitas individuales y refrigera un par de horas hasta que cuaje.">
+<img src="142.jpeg" alt="mousse de frambuesa." onclick="abrirReceta(this)">
+<h3>mousse de frambuesa.</h3>
+<p>Refrescante y dulce mousse.</p>
+</div>
+
+<div class="card" data-categoria="cupcake" 
+     data-ingredientes="180g de harina, 120g de azúcar, 100g de mantequilla, 2 huevos, 2 cucharadas de mermelada concentrada de fresa. Para el betún: 150g de mantequilla, 150g de azúcar glass, esencia o puré de fresas natural." 
+     data-receta="1. Panqué: Bate la mantequilla, azúcar, huevos y harina. Agrega las dos cucharadas de mermelada a la masa para darle un tono rosa y sabor sutil. Hornea a 180°C por 18 minutos.
+2. Betún: Bate la mantequilla a temperatura ambiente con el azúcar glass y añade una cucharadita de puré de fresas natural colado para darle color y sabor real.
+3. Armado: Decora los cupcakes fríos con una manga y corona opcionalmente con un trocito de fresa natural.">
+<img src="166.jpeg" alt="Cupcake" onclick="abrirReceta(this)">
+<h3>Cupcake sabor fresa </h3>
+<p>Esponjoso con betún sabor fresa.</p>
+</div>
+
+<div class="card" data-categoria="pastel" 
+     data-ingredientes="Bizcocho suave de chocolate amargo, 200g de frambuesas, 300g de chocolate para repostería, 300ml de crema de leche fresca, azúcar al gusto." 
+     data-receta="1. Base: Hornea un bizcocho de chocolate delgado en la base de un molde desmontable redondo.
+2. Relleno: Prepara un mousse derritiendo el chocolate con un tercio de la crema y agregando el resto de la crema batida de forma envolvente.
+3. Fruta: Coloca frambuesas frescas enteras esparcidas sobre el bizcocho de chocolate.
+4. Terminación: Vierte el mousse de chocolate cubriendo las frambuesas por completo. Alisa y refrigera durante 4 horas. Decora con más frambuesas arriba.">
+<img src="149.jpeg" alt="mousse de frambuesa y chocolate" onclick="abrirReceta(this)">
+<h3>mousse de frambuesa y chocolate</h3>
+<p>Delicioso mousse de frambuesa y chocolate.</p>
+</div>
+
+<div class="card" data-categoria="mini postres" 
+     data-ingredientes="150g de chocolate de cobertura, 100g de crema de avellanas (tipo Nutella), 150ml de crema para batir, avellanas tostadas picadas para el crujiente." 
+     data-receta="1. Cuencos: Pincela moldes de silicón semiesféricos con chocolate derretido para formar cuencos. Deja endurecer en el refrigerador y desmolda con cuidado.
+2. Mousse: Bate la crema de leche a punto firme y mézclala delicadamente con la crema de avellanas tibia.
+3. Montaje: Rellena los cuencos de chocolate crujiente con el mousse de avellana usando una manga pastelera.
+4. Detalle: Decora la superficie con trozos de avellanas tostadas para aportar textura.">
+<img src="146.jpeg" alt="mousse de chocolate." onclick="abrirReceta(this)">
+<h3>mousse de chocolate.</h3>
+<p>Refrescante y dulce mousse de chocolate y avellana en cuenco de chocolate.</p>
+</div>
+
+<div class="card" data-categoria="cupcake" 
+     data-ingredientes="180g de harina, 120g de azúcar, ralladura fina de una naranja, 50ml de jugo de naranja natural, 2 huevos, 100g de mantequilla. Betún con esencia o ralladura de naranja." 
+     data-receta="1. Masa: Bate la mantequilla con el azúcar y la ralladura de naranja para liberar los aceites esenciales. Añade los huevos, luego la harina alternando con el jugo de naranja natural.
+2. Hornear: Coloca en los moldes y hornea a 180°C durante 15-18 minutos.
+3. Betún: Mezcla crema batida o buttercream con unas gotas de esencia de naranja.
+4. Acabado: Decora artísticamente y añade una tira fina de corteza de naranja confitada encima.">
+<img src="160.jpeg" alt="Cupcake" onclick="abrirReceta(this)">
+<h3>Cupcake sabor naranja </h3>
+<p>Esponjoso con betún sabor naranja.</p>
+</div>
+
+<div class="card" data-categoria="pastel" 
+     data-ingredientes="3 huevos, 100g de azúcar, 100g de harina (bizcocho genovés clásico). Relleno: 250ml de crema para batir, 2 cucharadas de azúcar glass, fresas frescas fileteadas." 
+     data-receta="1. Bizcocho: Bate los huevos con el azúcar a punto de letra (muy espumosos). Integra la harina tamizada de forma envolvente. Hornea a 180°C por 20 minutos en dos moldes para obtener dos capas planas.
+2. Crema: Bate la crema de leche fría con el azúcar glass hasta que monte firme.
+3. Armado: Coloca un disco de bizcocho, una capa generosa de crema y distribuye las fresas fileteadas. Pon el segundo bizcocho encima.
+4. Presentación: Espolvorea azúcar glass sobre la superficie superior limpia y decora con fresas enteras.">
+<img src="123.jpeg" alt="Victoria Sponge Cake" onclick="abrirReceta(this)">
+<h3>bizcocho con crema</h3>
+<p>Delicioso bizcocho con crema y fresas.</p>
+</div>
+
+<div class="card" data-categoria="mini postres" 
+     data-ingredientes="Mini bases de masa hojaldre o quebrada horneadas, 200g de queso crema, 50g de azúcar, fresas frescas maduras, brillo pastelero." 
+     data-receta="1. Relleno batido: Mezcla el queso crema suavizado a temperatura ambiente con el azúcar hasta que no tenga grumos.
+2. Base: Rellena el fondo de cada mini tarta crujiente con la crema de queso.
+3. Decorar con fresas: Corta las fresas en láminas o mitades y acomódalas sobre la tarta imitando una flor.
+4. Acabado brillante: Aplica brillo para fruta con una brocha fina para darles un aspecto fresco de vitrina de repostería.">
+<img src="151.jpeg" alt="mini tarta." onclick="abrirReceta(this)">
+<h3>mini tarta con fresa.</h3>
+<p>cremosa tarta con fresas.</p>
+</div>
+
+<div class="card" data-categoria="cupcake" 
+     data-ingredientes="150g de harina, 30g de cocoa amarga en polvo, 130g de azúcar, 2 huevos, 100g de mantequilla, 80ml de leche. Betún de chocolate amargo intenso ganache." 
+     data-receta="1. Bizcocho de chocolate: Tamiza harina y cocoa. Mezcla con la mantequilla acremada, azúcar y huevos. Agrega la leche y hornea a 180°C por 18 minutos.
+2. Ganache firme: Derrite chocolate amargo al 70% con crema de leche en partes iguales. Deja enfriar a temperatura ambiente hasta que tome consistencia untable.
+3. Manga: Coloca el ganache en una manga con boquilla de estrella.
+4. Decorado: Haz un rosetón alto sobre cada cupcake de chocolate frío.">
+<img src="163.jpeg" alt="Cupcake" onclick="abrirReceta(this)">
+<h3>Cupcake sabor chocolate </h3>
+<p>Esponjoso con betún sabor chocolate amargo.</p>
+</div>
+
+<div class="card" data-categoria="cupcake" 
+     data-ingredientes="180g de harina, 120g de azúcar, 100g de mantequilla, 2 huevos, extracto de fresa. Crema de mantequilla rosa y chispas decorativas de colores." 
+     data-receta="1. Panqué rosa: Prepara la masa base de vainilla agregando un toque de extracto de fresa y una pizca de colorante rosa. Hornea a 180°C por 18 minutos.
+2. Crema: Prepara una crema de mantequilla dulce clásica batida.
+3. Aplicación: Decora de forma circular ascendente con una boquilla redonda o de estrella.
+4. Toque divertido: Decora esparciendo chispitas o granillo de azúcar blanco y rosa sobre el betún fresco.">
+<img src="162.jpeg" alt="Cupcake" onclick="abrirReceta(this)">
+<h3>Cupcake sabor fresa </h3>
+<p>Esponjoso con betún sabor fresa.</p>
+</div>
+
+<div class="card" data-categoria="cupcake" 
+     data-ingredientes="150g de harina, 120g de azúcar, 2 huevos, 100g de mantequilla, 2 cucharadas de Nutella. Copas de betún de chocolate y un chocolate Ferrero Rocher por unidad." 
+     data-receta="1. Masa rica: Agrega la crema de avellanas a la mezcla del panqué tradicional para obtener una miga húmeda de chocolate y avellana. Hornea.
+2. Betún: Mezcla crema de chocolate o buttercream con avellana molida extra fina.
+3. Decorar: Haz una base firme de betún sobre el cupcake frío.
+4. Coronación de lujo: Coloca un chocolate Ferrero Rocher entero justo en la punta de cada cupcake presionando ligeramente.">
+<img src="165.jpeg" alt="Cupcake" onclick="abrirReceta(this)">
+<h3>Cupcake sabor chocolate </h3>
+<p>Esponjoso con betún sabor ferrero rosher.</p>
+</div>
+
+<div class="card" data-categoria="mini postres" 
+     data-ingredientes="150g de nuez de pecana picada y tostada, 200ml de crema para batir, 100g de dulce de leche (cajeta), 2 hojas de gelatina sin sabor." 
+     data-receta="1. Sabor base: Licúa la mitad de las nueces tostadas junto con el dulce de leche para crear una pasta fina.
+2. Añadir firmeza: Disuelve la gelatina hidratada en un chorrito de crema caliente e incorpórala a la mezcla de dulce de leche.
+3. Envolvente: Incorpora la crema restante batida a punto firme de manera muy suave para no perder aire.
+4. Montaje rápido: Sirve en copitas, refrigera y decora con abundante nuez picada tostada crujiente en la superficie.">
+<img src="125.jpeg" alt="mini mousse." onclick="abrirReceta(this)">
+<h3>mini mousse de nuez .</h3>
+<p>cremoso mousse de nuez.</p>
+</div>
+ 
+<div class="card" data-categoria="mini postres" 
+     data-ingredientes="Galletas tipo soleta (savoiardi), 1 taza de café cargado frío, 200g de queso mascarpone, 100ml de crema para batir, 50g de azúcar glass, cocoa pura en polvo." 
+     data-receta="1. Crema tiramisú: Bate el queso mascarpone con el azúcar glass y junta con la crema batida hasta lograr una textura consistente.
+2. Remojo exprés: Pasa las galletas rápidamente por el café frío sin dejar que se deshagan.
+3. Armado: Coloca una capa de galletas remojadas en el fondo de un vasito, añade una capa de crema de mascarpone y repite el proceso.
+4. Acabado clásico: Espolvorea una capa generosa de cocoa en polvo cubriendo toda la superficie antes de enfriar por 3 horas.">
+<img src="150.jpeg" alt="tiramisu." onclick="abrirReceta(this)">
+<h3>mini tiramisu.</h3>
+<p> cremoso tiramisu con chocolate. </p>
+ </div>
+
+<div class="card" data-categoria="mini postres" 
+     data-ingredientes="50g chocolate negro, 50g chocolate con leche, 50g chocolate blanco, 1 taza de frambuesas naturales machacadas estilo puré." 
+     data-receta="1. Verrine de diseño: Funde los tres chocolates por separado en recipientes diferentes.
+2. Primera sección: Sirve una pequeña cantidad de chocolate negro en el fondo de los vasos transparentes. Deja enfriar.
+3. Segunda sección: Añade una capa del puré ácido de frambuesa fresca para cortar el dulzor.
+4. Capas finales: Termina intercalando el chocolate con leche y el chocolate blanco arriba. Decora con una frambuesa entera en la punta.">
+<img src="117.jfif" alt="verrine." onclick="abrirReceta(this)">
+<h3>verrine.</h3>
+<p>triple de chocolate y frambuesa.</p>
+</div>
+
+<div class="card" data-categoria="pastel" 
+     data-ingredientes="200g de galletas de vainilla molidas, 90g de mantequilla, 500g de queso crema, 150g de azúcar, 3 huevos, 1 cucharada de vainilla, mermelada de fresa espesa." 
+     data-receta="1. Base crujiente: Mezcla la galleta molida con mantequilla derretida. Presiona en el fondo de un molde desmontable.
+2. Crema de queso: Bate el queso crema con el azúcar, añade los huevos uno a uno y la vainilla a velocidad baja para evitar burbujas de aire.
+3. Horneado controlado: Vierte sobre la base y hornea a baño María a 160°C por 50-60 minutos hasta que los bordes estén firmes. Deja enfriar por completo.
+4. Cobertura: Desmolda con cuidado y extiende una capa generosa de mermelada de fresa brillante antes de cortar.">
+<img src="122.jpeg" alt="chesse cake" onclick="abrirReceta(this)">
+<h3>chesse cake de fresa</h3>
+<p>Delicioso chesse cake de fresas.</p>
+</div>
+
+<div class="card" data-categoria="mini postres" 
+     data-ingredientes="1 paquete de galletas Oreo, 200g de queso crema, 150ml de crema de leche para batir, 40g de azúcar glass." 
+     data-receta="1. Polvo Oreo: Separa la crema de 6 galletas Oreo y tritura las tapas de galleta hasta hacerlas polvo fino.
+2. Batido: Mezcla el queso crema con el azúcar glass y la crema de las galletas apartadas. Integra la crema batida firmemente.
+3. Unir todo: Añade la mitad del polvo de galleta Oreo de forma envolvente a la crema.
+4. Presentación: Sirve el mousse esponjoso en vasos individuales y cubre la parte superior con el polvo de galleta restante simulando tierra Oreo.">
+<img src="148.jpeg" alt="mousse de oreo." onclick="abrirReceta(this)">
+<h3>mousse de oreo.</h3>
+<p>mousse de oreo cremoso.</p>
+</div>
+
+<div class="card" data-categoria="mini postres" 
+     data-ingredientes="Mini tartaletas de masa quebrada horneadas, 150g de chocolate semi-amargo, 100ml de crema para batir, 20g de mantequilla suave." 
+     data-receta="1. Ganache sedoso: Calienta la crema para batir hasta el punto de ebullición. Viértela sobre el chocolate picado y mezcla hasta homogeneizar.
+2. Brillo: Añade la cucharada de mantequilla al ganache tibio para darle un acabado súper brillante y terso.
+3. Rellenar: Vierte el chocolate fundido directamente dentro de las mini tartaletas horneadas frías.
+4. Cuajado rápido: Deja reposar a temperatura ambiente o refrigera por 30 minutos hasta que el chocolate tome cuerpo y esté firme.">
+<img src="154.jpeg" alt="mini tarta." onclick="abrirReceta(this)">
+<h3>mini tarta.</h3>
+<p>mini tarta de chocolate.</p>
+</div>
+
+<div class="card" data-categoria="cupcake" 
+     data-ingredientes="180g de harina, 120g de azúcar, 100g de mantequilla, 2 huevos, 60ml de leche, 1 y 1/2 cucharaditas de extracto puro de vainilla. Crema de mantequilla tradicional." 
+     data-receta="1. Base clásica: Bate la mantequilla a temperatura ambiente con el azúcar. Añade los huevos, la harina tamizada y finalmente la leche con el extracto de vainilla.
+2. Horneado básico: Reparte la masa en capacillos y hornea a 180°C por 15-18 minutos.
+3. Frosting fino: Bate mantequilla con azúcar glass y una cucharadita de leche hasta formar picos firmes.
+4. Estilo: Aplica el betún de vainilla con una manga formando un copo clásico y elegante.">
+<img src="164.jpeg" alt="Cupcake" onclick="abrirReceta(this)">
+<h3>cupcake de vainilla </h3>
+<p>Esponjoso con betún sabor vainilla.</p>
+</div>
+
+<div class="card" data-categoria="cupcake" 
+     data-ingredientes="150g de harina, 10g de cocoa, 120g de azúcar, 1 huevo, 60g de mantequilla, 100ml de buttermilk, 1 cucharadita de colorante rojo intenso en gel, fresas y chocolate derretido." 
+     data-receta="1. Panqué Red Velvet: Mezcla los ingredientes secos. Aparte mezcla el buttermilk con el colorante rojo vivo y el huevo. Junta todo y hornea a 180°C por 18 minutos.
+2. Frosting perfecto: Prepara un betún cremoso a base de queso crema y azúcar glass bien firme.
+3. Cobertura: Coloca un rosetón abundante sobre el cupcake rojo ya frío.
+4. Toque final elegante: Baña la mitad de unas fresas frescas en chocolate derretido, déjalas secar y coloca una fresa sobre cada betún.">
+<img src="168.jpeg" alt="Cupcake" onclick="abrirReceta(this)">
+<h3>cupcake de Red Velvet </h3>
+<p>Esponjoso con betún cremoso con fresas bañadas en chocolate.</p>
+</div>
+
+<div class="card" data-categoria="pastel" 
+     data-ingredientes="Para el pastel: 150g de harina, 120g de azúcar, 3 huevos, 80g de mantequilla, 40g de cocoa. Para el flan: 4 huevos, 1 lata de leche condensada, 1 lata de leche evaporada, vainilla, cajeta o caramelo líquido para el molde." 
+     data-receta="1. Molde listo: Cubre el fondo de un molde grande de corona con abundante cajeta o caramelo líquido.
+2. Base de chocolate: Prepara la mezcla líquida de pastel de chocolate clásica y viértela primero en el molde.
+3. Capa de flan: Licúa perfectamente todos los ingredientes del flan y viértelo lentamente con una cuchara al revés sobre la masa de chocolate (no te preocupes, se invierten solos al hornear).
+4. Horno a baño María: Cubre con papel aluminio y hornea a baño María a 180°C por 1 hora y 10 minutos. Deja enfriar por completo antes de desmoldar boca abajo.">
+<img src="115.jpeg" alt="chocoflan" onclick="abrirReceta(this)">
+<h3>chocoflan</h3>
+<p>Delicioso chocoflan.</p>
+</div>
+
+</div>
+
+<div id="miModal" class="modal">
+    <div class="modal-content">
+        <span class="cerrar-modal" onclick="cerrarReceta()">&times;</span>
+        <h2 id="modalTitulo">Nombre del Postre</h2>
+        <h4>Ingredientes:</h4>
+        <p id="modalIngredientes">Lista de ingredientes...</p>
+        <h4>Preparación:</h4>
+        <p id="modalInstrucciones">Pasos de la receta...</p>
+    </div>
+</div>
+
+<script>
+// Función existente para filtrar categorías
+function filtrar(categoria){
+    let productos = document.querySelectorAll('.card');
+    productos.forEach(p => {
+        if(categoria === 'todos'){
+            p.style.display = 'block';
+        }else{
+            p.style.display = p.dataset.categoria === categoria ? 'block' : 'none';
+        }
+    });
+}
+
+// NUEVAS FUNCIONES PARA LA RECETA
+function abrirReceta(elementoImg) {
+    // Obtenemos la tarjeta contenedora (card) de la imagen clickeada
+    let tarjeta = elementoImg.closest('.card');
+    
+    // Extraemos la información del HTML de esa tarjeta
+    let titulo = tarjeta.querySelector('h3').innerText;
+    let ingredientes = tarjeta.getAttribute('data-ingredientes') || "Ingredientes no disponibles.";
+    let receta = tarjeta.getAttribute('data-receta') || "Receta no disponible.";
+    
+    // Inyectamos la información en la ventana modal
+    document.getElementById('modalTitulo').innerText = titulo;
+    document.getElementById('modalIngredientes').innerText = ingredientes;
+    document.getElementById('modalInstrucciones').innerText = receta;
+    
+    // Mostramos la ventana emergente utilizando Flexbox para centrarla
+    document.getElementById('miModal').style.display = 'flex';
+}
+
+function cerrarReceta() {
+    // Ocultamos la ventana emergente
+    document.getElementById('miModal').style.display = 'none';
+}
+
+// Cierra la modal si el usuario hace clic fuera de la caja blanca
+window.onclick = function(event) {
+    let modal = document.getElementById('miModal');
+    if (event.target == modal) {
+        modal.style.display = 'none';
+    }
+}
+</script>
+
+</body>
+</html>

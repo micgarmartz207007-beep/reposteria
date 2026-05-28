@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Nosotros | Mi Dulce Tentación</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+/* RESET */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+/* BODY */
+body{
+    font-family:'Poppins', sans-serif;
+    background:#fffaf5;
+    color:#4a2c1a;
+}
+
+/* BARRA DE NAVEGACIÓN (Estilo idéntico al menú anterior) */
+header{
+    background:#6E4A22;
+    color:white;
+    padding:20px;
+    text-align:center;
+}
+nav{
+    background:#6E4A22;
+    padding:12px;
+    text-align:center;
+}
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:0 15px;
+    font-weight:bold;
+    transition: 0.3s;
+}
+nav a:hover{
+    opacity: 0.8;
+}
+
+/* HERO (HEADER CON IMAGEN PRO) */
+.hero{
+    height:90vh;
+    background:url("131.jpg") center/cover no-repeat;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:white;
+    position:relative;
+}
+
+.hero::before{
+    content:"";
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.55);
+}
+
+.hero-content{
+    position:relative;
+    animation:fadeUp 1.5s ease;
+}
+
+.hero h1{
+    font-size:3.5em;
+    letter-spacing:3px;
+}
+
+.hero p{
+    margin-top:15px;
+    font-size:1.2em;
+    opacity:0.9;
+}
+
+/* CONTENEDOR */
+.contenedor{
+    max-width:1100px;
+    margin:auto;
+    padding:60px 20px;
+}
+
+/* SECCIONES */
+.seccion{
+    display:flex;
+    align-items:center;
+    gap:40px;
+    margin-bottom:70px;
+    flex-wrap:wrap;
+}
+
+.seccion img{
+    width:100%;
+    max-width:450px;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+    transition:0.4s;
+}
+
+.seccion img:hover{
+    transform:scale(1.05);
+}
+
+/* TEXTO */
+.texto{
+    flex:1;
+}
+
+.texto h2{
+    font-size:2em;
+    margin-bottom:15px;
+    color:#6b3e26;
+}
+
+.texto p{
+    line-height:1.8;
+    margin-bottom:10px;
+}
+
+/* FRASE DESTACADA */
+.frase{
+    text-align:center;
+    font-size:1.5em;
+    margin:50px 0;
+    font-style:italic;
+    color:#8b5e3c;
+}
+
+/* VALORES */
+.valores{
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    flex-wrap:wrap;
+}
+
+.card{
+    background:white;
+    padding:25px;
+    border-radius:20px;
+    width:260px;
+    text-align:center;
+    box-shadow:0 10px 25px rgba(0,0,0,0.1);
+    transition:0.4s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+}
+
+.card h3{
+    margin-bottom:10px;
+}
+
+/* BOTÓN */
+.boton{
+    display:block;
+    width:max-content;
+    margin:60px auto 0;
+    padding:14px 30px;
+    background:#A17B42;
+    color:white;
+    text-decoration:none;
+    border-radius:30px;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.boton:hover{
+    background:#A17B42;
+    transform:scale(1.08);
+}
+
+/* ANIMACIONES */
+@keyframes fadeUp{
+    from{opacity:0; transform:translateY(40px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+/* RESPONSIVE */
+@media(max-width:700px){
+    .hero h1{
+        font-size:2.3em;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Mi Dulce Tentación</h1>
+    <nav>
+        <a href="inicio.html">Inicio</a>
+        <a href="menu.html">Menú</a>
+        <a href="nosotros.html">Nosotros</a>
+        <a href="galeria.html">Galería</a>
+        <a href="contacto.html">Contacto</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <div class="hero-content">
+        <h1>Mi Dulce Tentación</h1>
+        <p>Endulzamos tus momentos más especiales 🍒</p>
+    </div>
+</section>
+
+<div class="contenedor">
+
+    <div class="seccion">
+        <img src="206.jpg" alt="Pastelería">
+        <div class="texto">
+            <h2>Nuestra Historia</h2>
+            <p>Todo comenzó con el amor por la repostería y el deseo de crear momentos inolvidables.</p>
+            <p>En <strong>Mi Dulce Tentación</strong> cada postre es una obra hecha con pasión, dedicación y creatividad.</p>
+        </div>
+    </div>
+
+    <div class="seccion">
+        <div class="texto">
+            <h2>Nuestra Misión</h2>
+            <p>Crear experiences dulces que acompañen tus momentos más importantes.</p>
+            <p>Nos enfocamos en calidad, sabor y presentación en cada detalle.</p>
+        </div>
+        <img src="200.jfif" alt="Postres">
+        <img src="333.jpg" alt="Postres">
+        <img src="203.jfif" alt="Postres">
+    </div>
+
+    <div class="frase">
+        “No vendemos postres… creamos felicidad en cada bocado”
+    </div>
+
+    <div class="valores">
+        <div class="card">
+            <h3>💖 Amor</h3>
+            <p>Cada receta está hecha con dedicación.</p>
+        </div>
+
+        <div class="card">
+            <h3>🍓 Calidad</h3>
+            <p>Ingredientes frescos y seleccionados.</p>
+        </div>
+
+        <div class="card">
+            <h3>✨ Creatividad</h3>
+            <p>Diseños únicos y personalizados.</p>
+        </div>
+    </div>
+
+    <a href="inicio.html" class="boton">⬅ Volver al Inicio</a>
+
+</div>
+
+</body>
+</html>
