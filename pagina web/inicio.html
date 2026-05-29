@@ -1,249 +1,244 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <title>Mi Dulce Tentación | Postres Artesanales</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Mi Dulce Tentación | Postres Artesanales</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght=300;400;600&display=swap" rel="stylesheet">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* RESET */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-<style>
+        /* BODY */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+                        url("131.jpg") no-repeat center/cover fixed;
+            color: #333;
+        }
 
-/* RESET */
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+        /* HEADER */
+        header {
+            background: #6b3e26;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
 
-/* BODY */
-body{
-    font-family:'Poppins', sans-serif;
-    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
-                url("131.jpg") no-repeat center/cover fixed;
-    color:#333;
-}
+        header h1 {
+            font-size: 45px;
+        }
 
-/* HEADER */
-header{
-    background:#6b3e26;
-    color:white;
-    text-align:center;
-    padding:40px 20px;
-}
+        header p {
+            font-size: 18px;
+        }
 
-header h1{
-    font-size:45px;
-}
+        /* NAV */
+        nav {
+            background: #8b5e3c;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 15px;
+        }
 
-header p{
-    font-size:18px;
-}
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 10px 20px;
+            font-weight: 600;
+        }
 
-/* NAV */
-nav{
-    background:#8b5e3c;
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    padding:15px;
-}
+        /* TITULO */
+        .titulo {
+            text-align: center;
+            padding: 50px 20px;
+            font-size: 40px;
+            color: white;
+        }
 
-nav a{
-    color:white;
-    text-decoration:none;
-    margin:10px 20px;
-    font-weight:600;
-}
+        /* GRID */
+        .productos {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            padding: 30px;
+        }
 
-/* TITULO */
-.titulo{
-    text-align:center;
-    padding:50px 20px;
-    font-size:40px;
-    color:white;
-}
+        /* CARDS */
+        .card {
+            background: white;
+            width: 350px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            transition: 0.4s;
+        }
 
-/* GRID */
-.productos{
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:30px;
-    padding:30px;
-}
+        .card:hover {
+            transform: scale(1.05);
+        }
 
-/* CARDS */
-.card{
-    background:white;
-    width:350px;
-    border-radius:20px;
-    overflow:hidden;
-    box-shadow:0 10px 25px rgba(0,0,0,0.3);
-    transition:0.4s;
-}
+        /* IMAGEN */
+        .card img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+        }
 
-.card:hover{
-    transform:scale(1.05);
-}
+        /* TEXTO */
+        .card h3 {
+            font-size: 24px;
+            padding: 15px;
+            text-align: center;
+        }
 
-/* IMAGEN */
-.card img{
-    width:100%;
-    height:280px;
-    object-fit:cover;
-}
+        .card p {
+            font-size: 16px;
+            padding: 0 20px 15px;
+            text-align: center;
+        }
 
-/* TEXTO */
-.card h3{
-    font-size:24px;
-    padding:15px;
-    text-align:center;
-}
+        /* BOTÓN */
+        .boton {
+            display: block;
+            margin: 10px auto 20px;
+            padding: 12px 25px;
+            background: #A17B42;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: 0.3s;
+        }
 
-.card p{
-    font-size:16px;
-    padding:0 20px 15px;
-    text-align:center;
-}
+        .boton:hover {
+            background: #a06b45;
+            transform: scale(1.1);
+        }
 
-/* BOTÓN */
-.boton{
-    display:block;
-    margin:10px auto 20px;
-    padding:12px 25px;
-    background:#A17B42;
-    color:white;
-    border:none;
-    border-radius:25px;
-    cursor:pointer;
-    font-size:16px;
-    transition:0.3s;
-}
+        /* CONTADOR DE VISTAS */
+        .vistas {
+            text-align: center;
+            color: white;
+            font-size: 22px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
 
-.boton:hover{
-    background:#a06b45;
-    transform:scale(1.1);
-}
+        /* VIDEO */
+        .video {
+            display: none;
+            text-align: center;
+            margin: 30px;
+        }
 
-/* CONTADOR DE VISTAS */
-.vistas{
-    text-align:center;
-    color:white;
-    font-size:22px;
-    margin-bottom:20px;
-    font-weight:bold;
-}
+        .video video {
+            width: 80%;
+            max-width: 600px;
+            border-radius: 15px;
+        }
 
-/* VIDEO */
-.video{
-    display:none;
-    text-align:center;
-    margin:30px;
-}
-
-.video video{
-    width:80%;
-    max-width:600px;
-    border-radius:15px;
-}
-
-/* FOOTER */
-footer{
-    background:#A17B42;
-    color:white;
-    text-align:center;
-    padding:20px;
-}
-
-</style>
+        /* FOOTER */
+        footer {
+            background: #A17B42;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
 </head>
 
 <body>
 
-<header>
-<h1>Mi Dulce Tentación</h1>
-<p>Postres artesanales hechos con amor</p>
-</header>
+    <header>
+        <h1>Mi Dulce Tentación</h1>
+        <p>Postres artesanales hechos con amor</p>
+    </header>
 
-<nav>
-<a href="inicio.html">Inicio</a>
-<a href="menu.html">Menú</a>
-<a href="nosotros.html">Nosotros</a>
-<a href="galeria.html">Galería</a>
-<a href="contacto.html">Contacto</a>
-</nav>
+    <nav>
+        <a href="inicio.html">Inicio</a>
+        <a href="menu.html">Menú</a>
+        <a href="nosotros.html">Nosotros</a>
+        <a href="galeria.html">Galería</a>
+        <a href="contacto.html">Contacto</a>
+    </nav>
 
-<div class="titulo">
-Nuestros Postres Destacados
-</div>
+    <div class="titulo">
+        Nuestros Postres Destacados
+    </div>
 
-<section class="productos">
+    <section class="productos">
+        <div class="card">
+            <img src="124.JPEG" alt="Pastel de Chocolate">
+            <h3>Pastel de Chocolate</h3>
+            <p>Esponjoso pastel con cobertura cremosa de chocolate.</p>
+        </div>
 
-<div class="card">
-<img src="124.JPEG">
-<h3>Pastel de Chocolate</h3>
-<p>Esponjoso pastel con cobertura cremosa de chocolate.</p>
-</div>
+        <div class="card">
+            <img src="121.JPEG" alt="Cheesecake">
+            <h3>Cheesecake</h3>
+            <p>Suave y cremoso cheesecake con base crujiente.</p>
+        </div>
 
-<div class="card">
-<img src="121.JPEG">
-<h3>Cheesecake</h3>
-<p>Suave y cremoso cheesecake con base crujiente.</p>
-</div>
+        <div class="card">
+            <img src="120.JFIF" alt="Cupcakes">
+            <h3>Cupcakes</h3>
+            <p>Coloridos cupcakes ideales para cualquier ocasión.</p>
+        </div>
+    </section>
 
-<div class="card">
-<img src="120.JFIF">
-<h3>Cupcakes</h3>
-<p>Coloridos cupcakes ideales para cualquier ocasión.</p>
-</div>
+    <button class="boton" onclick="mostrarVideo()">
+        Ver Video
+    </button>
 
-</section>
+    <div class="vistas">
+        👁️ Visitas de la página: <span id="contador">0</span>
+    </div>
 
-<!-- BOTÓN VIDEO -->
-<button class="boton" onclick="mostrarVideo()">
-Ver Video
-</button>
+    <div class="video" id="video">
+        <video controls>
+            <source src="comercial 4.mp4" type="video/mp4">
+            Tu navegador no soporta video
+        </video>
+    </div>
 
-<!-- CONTADOR DE VISTAS -->
-<div class="vistas">
-👁️ Visitas de la página: <span id="contador">0</span>
-</div>
+    <footer>
+        © 2026 Mi Dulce Tentación
+    </footer>
 
-<!-- VIDEO -->
-<div class="video" id="video">
-<video controls>
-<source src="comercial 4.mp4" type="video/mp4">
-Tu navegador no soporta video
-</video>
-</div>
+    <script>
+        // CONTADOR DE VISITAS (Evita el spam al recargar)
+        let visitas = sessionStorage.getItem("visitas_sesion");
 
-<footer>
-© 2026 Mi Dulce Tentación
-</footer>
+        if (visitas == null) {
+            visitas = 1;
+        } else {
+            // Si ya existe la sesión, mantiene el valor sin sumarle más en las recargas
+            visitas = parseInt(visitas);
+        }
 
-<script>
+        sessionStorage.setItem("visitas_sesion", visitas);
+        document.getElementById("contador").innerHTML = visitas;
 
-// CONTADOR DE VISITAS
-let visitas = localStorage.getItem("visitas");
-
-if(visitas == null){
-    visitas = 0;
-}
-
-visitas++;
-
-localStorage.setItem("visitas", visitas);
-
-document.getElementById("contador").innerHTML = visitas;
-
-// MOSTRAR VIDEO
-function mostrarVideo(){
-    document.getElementById("video").style.display = "block";
-}
-
-</script>
+        // MOSTRAR / OCULTAR VIDEO (Alternable)
+        function mostrarVideo() {
+            let videoDiv = document.getElementById("video");
+            if (videoDiv.style.display === "block") {
+                videoDiv.style.display = "none";
+            } else {
+                videoDiv.style.display = "block";
+            }
+        }
+    </script>
 
 </body>
 </html>
